@@ -36,7 +36,14 @@ void PrintMatrix2(int[,] matrix21) //метод распечатывает дв�
     {
         for (int j = 0; j < matrix21.GetLength(1); j++)
         {
-            Console.Write(matrix21[i, j] + "\t");
+            if (matrix21[i, j] < 10)
+            {
+                Console.Write($"0{matrix21[i, j]}      ");
+            }
+            else
+            {
+                Console.Write(matrix21[i, j] + "\t");
+            }
         }
         Console.WriteLine();
     }
