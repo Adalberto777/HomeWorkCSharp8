@@ -39,25 +39,33 @@ void PrintMatrix(int[,] matrix2) //метод распечатывает дву�
     }
 }
 
-int[,] MatrixProduct(int[,] matrix1, int[,] matrix2) //метод перемножает двумерные матрицы
-{   
-    int[,] result = new int[matrix1.GetLength(0), matrix2.GetLength(1)];
-        for (int i = 0; i < matrix1.GetLength(0); i++)
+void MatrixProduct(int[,] matrix1, int[,] matrix2) //метод перемножает двумерные матрицы
+{
+    if (matrix1.GetLength(1) != matrix2.GetLength(0))
     {
-        for (int j = 0; j < matrix2.GetLength(1); j++)
+        Console.WriteLine("Матрицы нельзя перемножить");
+    }
+    else
+    {
+        int[,] result = new int[matrix1.GetLength(0), matrix2.GetLength(1)];
+        for (int i = 0; i < matrix1.GetLength(0); i++)
         {
-            for (int k = 0; k < matrix2.GetLength(0); k++)
+            for (int j = 0; j < matrix2.GetLength(1); j++)
             {
-                result[i, j] = result[i, j] + matrix1[i, k] * matrix2[k, j];
+                for (int k = 0; k < matrix2.GetLength(0); k++)
+                {
+                    result[i, j] = result[i, j] + matrix1[i, k] * matrix2[k, j];
+                }
             }
         }
+        PrintMatrix(result);
     }
-    return result;
+
 }
 
-int[,] matrix21 = GetMatrix21(2 , 3, 0, 9); //1-строки 2-столбцы 3-минимальное число 4-максимальное число
+int[,] matrix21 = GetMatrix21(2, 3, 0, 9); //1-строки 2-столбцы 3-минимальное число 4-максимальное число
 
-int[,] matrix22 = GetMatrix22(4 , 4, 0, 9); //1-строки 2-столбцы 3-минимальное число 4-максимальное число
+int[,] matrix22 = GetMatrix22(3, 2, 0, 9); //1-строки 2-столбцы 3-минимальное число 4-максимальное число
 
 PrintMatrix(matrix21);
 
@@ -67,12 +75,6 @@ PrintMatrix(matrix22);
 
 Console.WriteLine();
 
-if (matrix21.GetLength(1) != matrix22.GetLength(0))
-{
-    Console.WriteLine("Матрицы нельзя перемножить");
-}
-else
-{
-    PrintMatrix(MatrixProduct(matrix21, matrix22));
-}
+MatrixProduct(matrix21, matrix22);
+
 
