@@ -26,21 +26,22 @@ void PrintMatrix(int[,] matrix2) //метод распечатывает дву�
 }
 
 int MinSumLine(int[,] matrix2) //метод ищет строку с минимальной суммой элементов
-{   
+{
     int[] minSumLine = new int[matrix2.GetLength(0)];
-            
+
     for (int i = 0; i < matrix2.GetLength(0); i++)
     {
         for (int j = 0; j < matrix2.GetLength(1); j++)
         {
-            minSumLine[i] += matrix2[i,j];
-        }        
+            minSumLine[i] += matrix2[i, j];
+        }
     }
+
     int minValue = minSumLine[0];
     int minIndex = 0;
     for (int k = 1; k < minSumLine.Length; k++)
     {
-        if(minValue > minSumLine[k])
+        if (minValue > minSumLine[k])
         {
             minValue = minSumLine[k];
             minIndex = k;
@@ -49,7 +50,7 @@ int MinSumLine(int[,] matrix2) //метод ищет строку с миним�
     return minIndex;
 }
 
-int[,] matrix = GetMatrix(4 , 5, 0, 9); //1-строки 2-столбцы 3-минимальное число 4-максимальное число
+int[,] matrix = GetMatrix(4, 4, 0, 9); //1-строки 2-столбцы 3-минимальное число 4-максимальное число
 
 Console.WriteLine("двумерный массив заполненный случайными числами");
 
@@ -57,6 +58,6 @@ PrintMatrix(matrix);
 
 Console.WriteLine();
 
-Console.WriteLine($"{MinSumLine(matrix)+1} - строка с минимальной суммой элементов");
+Console.WriteLine($"{MinSumLine(matrix) + 1} - строка с минимальной суммой элементов");
 
 
