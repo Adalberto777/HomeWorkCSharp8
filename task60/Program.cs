@@ -1,5 +1,5 @@
 ﻿// Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы
-int[,,] GetMatrix3(int pages, int lines, int columns, int minValue, int maxValue) //метод с параметрами: размер, мин элемент, макс элемент создает массив 
+int[,,] GetMatrix3(int pages, int lines, int columns) //метод с параметрами: размер, мин элемент, макс элемент создает массив 
 {                                                                   //заполненный случайными числами
     int[,,] result = new int[pages, lines, columns];
     int count = 10; 
@@ -10,7 +10,7 @@ int[,,] GetMatrix3(int pages, int lines, int columns, int minValue, int maxValue
         {
             for (int k = 0; k < result.GetLength(2); k++)
             {
-                result[i, j, k] = count;  //new Random().Next(minValue, maxValue + 1);
+                result[i, j, k] = count;
                 count += 1;
             }
         }
@@ -33,7 +33,7 @@ void PrintMatrix3(int[,,] matrix31) //метод распечатывает дв
     }
 }
 
-int[,,] matrix3 = GetMatrix3(2, 2, 2, 10, 99); //1-страницы 2-строки 3-столбцы 4-минимальное число 5-максимальное число
+int[,,] matrix3 = GetMatrix3(2, 2, 2); //1-страницы 2-строки 3-столбцы 4-минимальное число 5-максимальное число
 
 
 
