@@ -1,19 +1,5 @@
 ﻿// Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц
-int[,] GetMatrix21(int lines, int columns, int minValue, int maxValue) //метод с параметрами: размер, мин элемент, макс элемент создает массив 
-{                                                                   //заполненный случайными числами
-    int[,] result = new int[lines, columns];
-
-    for (int i = 0; i < result.GetLength(0); i++)
-    {
-        for (int j = 0; j < result.GetLength(1); j++)
-        {
-            result[i, j] = new Random().Next(minValue, maxValue + 1);
-        }
-    }
-    return result;
-}
-
-int[,] GetMatrix22(int lines, int columns, int minValue, int maxValue) //метод с параметрами: размер, мин элемент, макс элемент создает массив 
+int[,] GetMatrix2(int lines, int columns, int minValue, int maxValue) //метод с параметрами: размер, мин элемент, макс элемент создает массив 
 {                                                                   //заполненный случайными числами
     int[,] result = new int[lines, columns];
 
@@ -63,9 +49,9 @@ void MatrixProduct(int[,] matrix1, int[,] matrix2) //метод перемнож
 
 }
 
-int[,] matrix21 = GetMatrix21(2, 3, 0, 9); //1-строки 2-столбцы 3-минимальное число 4-максимальное число
+int[,] matrix21 = GetMatrix2(3, 2, 0, 9); //1-строки 2-столбцы 3-минимальное число 4-максимальное число
 
-int[,] matrix22 = GetMatrix22(3, 2, 0, 9); //1-строки 2-столбцы 3-минимальное число 4-максимальное число
+int[,] matrix22 = GetMatrix2(2, 3, 0, 9); //1-строки 2-столбцы 3-минимальное число 4-максимальное число
 
 PrintMatrix(matrix21);
 
