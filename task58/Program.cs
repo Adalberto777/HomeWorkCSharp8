@@ -39,7 +39,7 @@ void PrintMatrix(int[,] matrix2) //метод распечатывает дву�
     }
 }
 
-int[,] MatrixProduct(int[,] matrix1, int[,] matrix2) //метод ищет строку с минимальной суммой элементов
+int[,] MatrixProduct(int[,] matrix1, int[,] matrix2) //метод перемножает двумерные матрицы
 {   
     int[,] result = new int[matrix1.GetLength(0), matrix1.GetLength(1)];
     if (matrix1.GetLength(1) != matrix2.GetLength(0)) 
@@ -53,7 +53,7 @@ int[,] MatrixProduct(int[,] matrix1, int[,] matrix2) //метод ищет ст�
         {
             for (int k = 0; k < matrix2.GetLength(0); k++)
             {
-                result[i, j] += matrix1[i, k] * matrix1[k, j];
+                result[i, j] = result[i, j] + matrix1[i, k] * matrix2[k, j];
             }
         }
     }
@@ -62,7 +62,7 @@ int[,] MatrixProduct(int[,] matrix1, int[,] matrix2) //метод ищет ст�
 
 int[,] matrix21 = GetMatrix21(2 , 2, 0, 9); //1-строки 2-столбцы 3-минимальное число 4-максимальное число
 
-int[,] matrix22 = GetMatrix22(2 , 2, 0, 9);
+int[,] matrix22 = GetMatrix22(2 , 2, 0, 9); //1-строки 2-столбцы 3-минимальное число 4-максимальное число
 
 PrintMatrix(matrix21);
 
