@@ -21,7 +21,8 @@ int[,,] GetMatrix3(int pages, int lines, int columns)
 void PrintMatrix3(int[,,] matrix31) 
 {
     for (int i = 0; i < matrix31.GetLength(0); i++)
-    {
+    {   
+        Console.WriteLine($"{i} слой матрицы");
         for (int j = 0; j < matrix31.GetLength(1); j++)
         {
             for (int k = 0; k < matrix31.GetLength(2); k++)
@@ -29,11 +30,13 @@ void PrintMatrix3(int[,,] matrix31)
                 Console.Write($" {matrix31[i, j, k]}({i}, {j}, {k}) ");
             }
             Console.WriteLine();
-        }
+        } 
+        Console.WriteLine();       
     }
+    
 }
 
-int[,,] matrix3 = GetMatrix3(2, 2, 2); //1-страницы 2-строки 3-столбцы
+int[,,] matrix3 = GetMatrix3(3, 3, 3); //1-страницы 2-строки 3-столбцы
 
 PrintMatrix3(matrix3);
 
